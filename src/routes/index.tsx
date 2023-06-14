@@ -17,6 +17,13 @@ export default component$(() => {
       <span class="text-2xl">Poke-qwik</span>
       <span class="text-2xl m-3">Search</span>
       <span class="text-9x1">{pokemonId}</span>
+<div class="mr-2 mt-3"  >
+
+
+      <button onClick$={()=>pokemonId.value ++} class="btn btn-primary mr-3 border-t-0">Siguiente</button>
+      <button  onClick$={()=>pokemonId.value -1} class="btn btn-primary">Anterior</button>
+
+</div>
     </>
   );
 });

@@ -62,3 +62,12 @@ body {
   padding: 0;
   line-height: inherit;
 }
+.btn{
+
+@apply font-medium py-2 rounded;
+
+}
+.btn-primary{
+
+@apply bg-gray-300 text-black;
+}
