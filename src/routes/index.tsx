@@ -1,4 +1,4 @@
-import { component$, useSignal, useStore } from "@builder.io/qwik";
+import { component$, useSignal,  $ } from '@builder.io/qwik';
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
@@ -7,6 +7,12 @@ export default component$(() => {
 
   //una señal con el valor de 1
   const pokemonId = useSignal(1); //para primitivos
+
+
+  const changePokemonId = $((value: number) => {
+    if ((pokemonId.value + value <= 0)) return
+    pokemonId.value += value
+  })
 
   //const pokemonId2 = useStore() objetos mas complejos
 
@@ -22,20 +28,15 @@ export default component$(() => {
         alt="pokemon-image"
       />
       <div class="mr-2 mt-3">
-      
-        {
-          pokemonId.value < 2 ? <button disabled class="btn btn-primary mix-blend-color-burn mr-3">
-            Anterior
-          </button>
 
-            :
-            <button onClick$={() => pokemonId.value--} class="btn btn-primary mr-3">
-              Anterior
-            </button>
 
-        }
-          <button
-          onClick$={() => pokemonId.value++}
+        <button onClick$={() => changePokemonId(-1)} class="btn btn-primary mr-3">
+          Anterior
+        </button>
+
+
+        <button
+          onClick$={() => changePokemonId(+1)}
           class="btn btn-primary  border-t-0"
         >
           Siguiente
